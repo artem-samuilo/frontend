@@ -1,7 +1,5 @@
-FROM ubuntu:18.04
-RUN apt-get -y update
-RUN apt-get install -y nginx
+FROM nginx
 WORKDIR code
 COPY ./code/index.html /code
-COPY ./nginx-conf/nginx-front.conf /etc/nginx/sites-available/default
+COPY ./nginx-conf/nginx-front.conf /etc/nginx/conf.d/default.conf
 CMD ["nginx", "-g", "daemon off;"]
